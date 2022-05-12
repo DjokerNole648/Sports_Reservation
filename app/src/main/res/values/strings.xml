@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Book your court!</string>
+
+    <string-array name="sports">
+        <item>tennisHard</item>
+        <item>tennisClay</item>
+        <item>tennisGrass</item>
+        <item>badminton</item>
+        <item>basketball</item>
+        <item>football</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Rod Laver Arena: Tennis Hard Court</item>
+        <item>Court Philippe Chatrier: Tennis Clay Court</item>
+        <item>Center Court: Tennis Grass Court</item>
+        <item>Random description</item>
+        <item>Random description</item>
+        <item>Random description</item>
+    </string-array>
+</resources>
