@@ -1,6 +1,5 @@
 package be.kuleuven.sports_reservation;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,11 +27,13 @@ public class HomeFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerViewList = new ArrayList<>();
-        recyclerViewList.add(new recyclerView(R.drawable.hard, "Rod Laver Arena", "Hard Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.clay, "Philippe Chatrier", "Clay Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.grass, "Center Court", "Tennis Grass Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.clay, "Rod Laver Arena", "Hard Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.clay, "Rod Laver Arena", "Hard Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.hardau, "Rod Laver Arena", "Tennis Hard Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.clay, "Court Philippe Chatrier", "Tennis Clay Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.grass, "Centre Court", "Tennis Grass Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.hardus, "Arthur Ashe Stadium", "Tennis Hard Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.badminton, "Badminton", "Badminton Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.basketball, "Basketball", "Basketball Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.volleyball, "Volleyball", "Volleyball Court"));
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerViewAdapter = new recyclerViewAdapter(recyclerViewList, getContext());

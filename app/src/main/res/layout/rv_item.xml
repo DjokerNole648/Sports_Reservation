@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="TextView"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/tennis_clay_title"
         app:layout_constraintTop_toBottomOf="@+id/tennis_clay_title" />
 
@@ -28,10 +28,10 @@
         android:id="@+id/tennis_clay_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tennis_clay"
         app:layout_constraintTop_toTopOf="parent" />
