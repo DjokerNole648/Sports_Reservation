@@ -2,6 +2,7 @@ package be.kuleuven.sports_reservation;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.EventLogTags;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,12 +38,9 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
         holder.myText1.setText(view.getTitle());
         holder.myText2.setText(view.getDescription());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(context, DetailActivity.class);
-                //context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(view1 -> {
+            Intent intent = new Intent(context, DescriptionActivity.class);
+            context.startActivity(intent);
         });
     }
 

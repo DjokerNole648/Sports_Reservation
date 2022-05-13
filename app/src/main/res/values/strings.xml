@@ -18,4 +18,19 @@
         <item>Random description</item>
         <item>Random description</item>
     </string-array>
+
+    <string-array name="badminton_items">
+        <item>None</item>
+        <item>Badminton1</item>
+        <item>Badminton2</item>
+        <item>Badminton3</item>
+    </string-array>
+
+    <string-array name="tennis_items">
+        <item>None</item>
+        <item>Tennis1</item>
+        <item>Tennis2</item>
+        <item>Tennis3</item>
+    </string-array>
+
 </resources>

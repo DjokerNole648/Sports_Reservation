@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="be.kuleuven.sports_reservation">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sports_reservation">
         <activity
-            android:name=".settingsActivity"
+            android:name=".DescriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".personalActivity"
+            android:name=".ChooseTimeActivity"
             android:exported="false" />
         <activity
-            android:name=".homeActivity"
+            android:name=".BookMessageActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
