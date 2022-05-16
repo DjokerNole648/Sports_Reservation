@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/search_background"
     android:onClick="onBtnSearch_Clicked"
     tools:context=".SearchFragment">
 
@@ -11,11 +12,12 @@
         android:id="@+id/txtTennis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="50dp"
         android:text="Tennis:"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtBadminton"
         app:layout_constraintStart_toStartOf="@+id/txtBadminton"
         app:layout_constraintTop_toBottomOf="@+id/txtBadminton" />
 
@@ -23,57 +25,77 @@
         android:id="@+id/txtBadminton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="36dp"
         android:text="Badminton:"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="72dp" />
+        tools:layout_editor_absoluteY="308dp" />
 
     <TextView
         android:id="@+id/txtBasketball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Basketball"
+        android:layout_marginTop="50dp"
+        android:text="Basketball:"
         android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="334dp" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtVolleyball"
+        app:layout_constraintStart_toStartOf="@+id/txtVolleyball"
+        app:layout_constraintTop_toBottomOf="@+id/txtVolleyball" />
 
     <TextView
         android:id="@+id/txtVolleyball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Volleyball"
+        android:layout_marginTop="50dp"
+        android:text="Volleyball:"
         android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="254dp" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtTennis"
+        app:layout_constraintStart_toStartOf="@+id/txtTennis"
+        app:layout_constraintTop_toBottomOf="@+id/txtTennis" />
 
     <Spinner
         android:id="@+id/spBadminton"
         android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="88dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="44dp"
         android:entries="@array/badminton_items"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="@+id/txtBadminton"
         app:layout_constraintStart_toEndOf="@+id/txtBadminton"
-        app:layout_constraintTop_toTopOf="@+id/txtBadminton" />
+        app:layout_constraintTop_toTopOf="@+id/txtBadminton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spTennis"
         android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="128dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="72dp"
         android:entries="@array/tennis_items"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="@+id/txtTennis"
         app:layout_constraintStart_toEndOf="@+id/txtTennis"
         app:layout_constraintTop_toTopOf="@+id/txtTennis"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spBasketball"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="579dp" />
+
+    <Spinner
+        android:id="@+id/spVolleyball"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="488dp" />
 
     <Button
         android:id="@+id/btnSearch"
@@ -82,7 +104,8 @@
         android:onClick="onBtnSearch_Clicked"
         android:text="search"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="531dp" />
+        tools:layout_editor_absoluteY="199dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
