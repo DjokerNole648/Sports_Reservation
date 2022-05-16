@@ -1,0 +1,68 @@
+package be.kuleuven.sports_reservation;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder> {
+
+    private Context mCtx;
+    private List<TimeSlot> timeSlotList;
+
+    public CalendarAdapter(Context mCtx, List<TimeSlot> timeSlotList) {
+        this.mCtx = mCtx;
+        this.timeSlotList = timeSlotList;
+    }
+
+    @NonNull
+    @Override
+    public CalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(mCtx); //Instantiates a layout XML file into its corresponding View objects.
+        View view = inflater.inflate(R.layout.calendar_row, parent,false);//把my_row.xml初始化成相应的view objects
+        return new CalendarViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position) {
+        TimeSlot timeSlot = timeSlotList.get(position);
+
+        holder.txtBeginTime.setText(timeSlot.getBeginTime());
+        holder.txtEndTime.setText(timeSlot.getEndTime());
+        holder.txtCourtName.setText(timeSlot.getCourtName());
+
+//        Glide.with(mCtx)
+//                .load(timeSlot.getImage())
+//                .into(holder.imageView);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return timeSlotList.size();
+    }
+
+    class CalendarViewHolder extends RecyclerView.ViewHolder{
+
+        ImageView imageView;
+        TextView txtCourtName, txtBeginTime, txtEndTime, txtSign;
+
+        public CalendarViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            imageView = itemView.findViewById(R.id.imageView);
+            txtBeginTime = itemView.findViewById(R.id.txtTime3);
+            txtEndTime = itemView.findViewById(R.id.txtTime4);
+            txtCourtName = itemView.findViewById(R.id.txtCourtName);
+            txtSign = itemView.findViewById(R.id.txtSign);
+
+        }
+    }
+}

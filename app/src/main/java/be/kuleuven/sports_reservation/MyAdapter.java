@@ -21,7 +21,10 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
+    private String userName;
     private List<be.kuleuven.sports_reservation.TimeSlot> timeSlotList;
+
+//    private String book_URL = "https://studev.groept.be/api/a21pt101/addBooking/";
 
     public MyAdapter(Context mCtx, List<be.kuleuven.sports_reservation.TimeSlot> timeSlotList) {
         this.context = mCtx;
@@ -64,6 +67,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //                    context.startActivity(intent);
 //                }
                 Intent intent = new Intent(context, BookMessageActivity.class);
+                intent.putExtra("isBook", holder.btnBook.isEnabled());
                 intent.putExtra("beginTime", timeSlot.getBeginTime());
                 intent.putExtra("endTime", timeSlot.getEndTime());
                 context.startActivity(intent);
@@ -72,6 +76,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                 holder.btnUnbook.setEnabled(true);
                 holder.btnBook.setEnabled(false);
+
             }
         });
 
@@ -79,26 +84,45 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, BookMessageActivity.class);
+                intent.putExtra("isBook", holder.btnBook.isEnabled());
                 intent.putExtra("beginTime", timeSlot.getBeginTime());
                 intent.putExtra("endTime", timeSlot.getEndTime());
                 context.startActivity(intent);
 
 //                TimeUnit.SECONDS.sleep(1);//秒 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-                holder.btnUnbook.setEnabled(true);
-                holder.btnBook.setEnabled(false);
-            }
-        });
-
-        holder.btnUnbook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 holder.btnUnbook.setEnabled(false);
                 holder.btnBook.setEnabled(true);
             }
         });
 
+
     }
+//    private void addBooking(String userName, String courtname, String beginTime){
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, book_URL + userName + courtname + beginTime, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(context, "Book failed.", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        })
+//        {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("userName", "Alice");//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!value要改成当下的username
+//                params.put("courtName", courtname);
+//                params.put("beginTime", beginTime);
+//                return params;
+//            }
+//        };
+//        Volley.newRequestQueue(this).add(stringRequest);
+//    }
 
     @Override
     public int getItemCount() {

@@ -7,7 +7,7 @@
     tools:context=".ChooseTimeActivity">
 
     <TextView
-        android:id="@+id/txtType"
+        android:id="@+id/txtTimeSlot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/timeSlot"
+        android:id="@+id/myCalendar"
         android:layout_width="409dp"
         android:layout_height="649dp"
         android:layout_marginTop="80dp"

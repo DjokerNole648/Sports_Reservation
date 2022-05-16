@@ -17,8 +17,7 @@ import androidx.fragment.app.Fragment;
 public class SearchFragment extends Fragment {
 
     private Button btnSearch;
-    private Spinner spBadminton;
-    private Spinner spTennis;
+    private Spinner spBadminton, spTennis ,spBasketball, spVolleyBall, spFootBall;
 
     @Nullable
     @Override
@@ -26,9 +25,15 @@ public class SearchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        btnSearch = (Button) view.findViewById(R.id.btnSearch);
+
         spBadminton = (Spinner) view.findViewById(R.id.spBadminton);
         spTennis = (Spinner) view.findViewById(R.id.spTennis);
+        spBasketball = (Spinner) view.findViewById(R.id.spBasketball);
+        spVolleyBall = (Spinner) view.findViewById(R.id.spVolleyball);
+        spFootBall = (Spinner) view.findViewById(R.id.spFootball);
+
+        btnSearch = (Button) view.findViewById(R.id.btnSearch);
+
 
         btnSearch.setEnabled(false);
 

@@ -2,87 +2,186 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@android:style/Theme.Translucent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/search_background1"
     android:onClick="onBtnSearch_Clicked"
     tools:context=".SearchFragment">
-
-    <TextView
-        android:id="@+id/txtTennis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:text="Tennis:"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/txtBadminton"
-        app:layout_constraintTop_toBottomOf="@+id/txtBadminton" />
 
     <TextView
         android:id="@+id/txtBadminton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Badminton:"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="132dp"
+        android:text="Badminton"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="72dp" />
-
-    <TextView
-        android:id="@+id/txtBasketball"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Basketball"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="334dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtVolleyball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
         android:text="Volleyball"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="254dp" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtTennis"
+        app:layout_constraintTop_toBottomOf="@+id/txtTennis" />
+
+    <TextView
+        android:id="@+id/txtBasketball2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Football"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtBasketball"
+        app:layout_constraintTop_toBottomOf="@+id/txtBasketball" />
+
+    <ImageView
+        android:id="@+id/imgFootball"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/football_icon"
+        app:layout_constraintEnd_toStartOf="@+id/txtBasketball2"
+        app:layout_constraintTop_toTopOf="@+id/txtBasketball2" />
+
+    <ImageView
+        android:id="@+id/imgVolleyBall"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/volleyball_icon"
+        app:layout_constraintEnd_toStartOf="@+id/txtVolleyball"
+        app:layout_constraintTop_toTopOf="@+id/txtVolleyball" />
+
+    <TextView
+        android:id="@+id/txtTennis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Tennis"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtBadminton"
+        app:layout_constraintTop_toBottomOf="@+id/txtBadminton" />
+
+    <ImageView
+        android:id="@+id/imgBadminton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/badminton_icon"
+        app:layout_constraintEnd_toStartOf="@+id/txtBadminton"
+        app:layout_constraintTop_toTopOf="@+id/txtBadminton" />
+
+    <ImageView
+        android:id="@+id/imaTennis"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tennis_icon"
+        app:layout_constraintEnd_toStartOf="@+id/txtTennis"
+        app:layout_constraintTop_toTopOf="@+id/txtTennis" />
+
+    <ImageView
+        android:id="@+id/imgBasketball"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/basketball_icon"
+        app:layout_constraintEnd_toStartOf="@+id/txtBasketball"
+        app:layout_constraintTop_toTopOf="@+id/txtBasketball" />
+
+    <TextView
+        android:id="@+id/txtBasketball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Basketball"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtVolleyball"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txtVolleyball"
+        app:layout_constraintTop_toBottomOf="@+id/txtVolleyball" />
 
     <Spinner
         android:id="@+id/spBadminton"
         android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="88dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
         android:entries="@array/badminton_items"
         android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="@+id/txtBadminton"
         app:layout_constraintStart_toEndOf="@+id/txtBadminton"
         app:layout_constraintTop_toTopOf="@+id/txtBadminton" />
 
     <Spinner
         android:id="@+id/spTennis"
         android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="128dp"
+        android:layout_height="40dp"
         android:entries="@array/tennis_items"
         android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="@+id/txtTennis"
-        app:layout_constraintStart_toEndOf="@+id/txtTennis"
-        app:layout_constraintTop_toTopOf="@+id/txtTennis"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/spBadminton"
+        app:layout_constraintTop_toTopOf="@+id/txtTennis" />
+
+    <Spinner
+        android:id="@+id/spBasketball"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:entries="@array/basketball_items"
+        app:layout_constraintStart_toStartOf="@+id/spVolleyball"
+        app:layout_constraintTop_toTopOf="@+id/txtBasketball" />
+
+    <Spinner
+        android:id="@+id/spVolleyball"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:entries="@array/volleyball_items"
+        app:layout_constraintStart_toStartOf="@+id/spTennis"
+        app:layout_constraintTop_toTopOf="@+id/txtVolleyball" />
 
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:onClick="onBtnSearch_Clicked"
         android:text="search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="531dp" />
+        app:layout_constraintTop_toBottomOf="@+id/spFootball" />
+
+    <Spinner
+        android:id="@+id/spFootball"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:entries="@array/football_items"
+        app:layout_constraintStart_toStartOf="@+id/spBasketball"
+        app:layout_constraintTop_toTopOf="@+id/txtBasketball2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:text="Please choose one at a time:"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

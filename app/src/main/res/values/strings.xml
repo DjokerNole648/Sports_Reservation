@@ -33,4 +33,25 @@
         <item>Tennis3</item>
     </string-array>
 
+    <string-array name="volleyball_items">
+        <item>None</item>
+        <item>Tennis1</item>
+        <item>Tennis2</item>
+        <item>Tennis3</item>
+    </string-array>
+
+    <string-array name="basketball_items">
+        <item>None</item>
+        <item>Tennis1</item>
+        <item>Tennis2</item>
+        <item>Tennis3</item>
+    </string-array>
+
+    <string-array name="football_items">
+        <item>None</item>
+        <item>Tennis1</item>
+        <item>Tennis2</item>
+        <item>Tennis3</item>
+    </string-array>
+
 </resources>

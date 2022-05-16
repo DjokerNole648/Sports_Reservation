@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/activity_choose_time.xml" value="0.1322463768115942" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/activity_book_message.xml" value="0.22" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/activity_choose_time.xml" value="0.22" />
         <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/activity_description.xml" value="0.1322463768115942" />
         <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/activity_main.xml" value="0.35" />
         <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/activity_second.xml" value="0.13385416666666666" />
-        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/fragment_search.xml" value="0.22" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/calendar_row.xml" value="0.3333333333333333" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/fragment_favorite.xml" value="0.2953125" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/fragment_home.xml" value="0.2953125" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/fragment_search.xml" value="0.3333333333333333" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/my_row.xml" value="0.35" />
+        <entry key="..\:/BitaoPeng/KU_Leuven/Curriculum/programmingTechniques/Lab7-12/SportsReservation_git/app/src/main/res/layout/rv_item.xml" value="0.35" />
         <entry key="..\:/Programming Lab/sports_reservation/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.174" />
         <entry key="..\:/Programming Lab/sports_reservation/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.174" />
         <entry key="..\:/Programming Lab/sports_reservation/app/src/main/res/drawable/ic_baseline_settings_suggest_24.xml" value="0.174" />
