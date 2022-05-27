@@ -33,9 +33,6 @@ public class ChooseTimeActivity extends AppCompatActivity {
 
     private static final String checkByCourtName_URL = "https://studev.groept.be/api/a21pt101/checkByCourtName/";
 
-//    String s1[], s2[];
-//    int images[] = {R.drawable.sun1,R.drawable.sun1,R.drawable.sun1,R.drawable.sun1,R.drawable.sun1,R.drawable.sun1,R.drawable.sun1};//order is important
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +54,6 @@ public class ChooseTimeActivity extends AppCompatActivity {
         timeSlotList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.myCalendar);
-//        s1 = getResources().getStringArray(R.array.time_slots);
-//        s2 = getResources().getStringArray(R.array.availability);
-//
-//        //把这四个参数的值从main activity传到了myAdapter
-//        MyAdapter myAdapter = new MyAdapter(this, s1, s2, images); // this是ChooseTime这个activity
-//
-//        recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loadTimeSlot();
@@ -83,8 +73,9 @@ public class ChooseTimeActivity extends AppCompatActivity {
                         String beginTime = o.getString("beginTime");
                         String endTime = o.getString("endTime");
                         String courtName = o.getString("courtName");
+                        String image = o.getString("image");
 
-                        TimeSlot timeSlot = new TimeSlot(beginTime, endTime, courtName);
+                        TimeSlot timeSlot = new TimeSlot(beginTime, endTime, courtName, image);
                         timeSlotList.add(timeSlot);
 
                     }

@@ -25,35 +25,36 @@
                 android:layout_marginEnd="48dp"
                 android:text="BOOK"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/txtBeginTime"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toEndOf="@+id/imageCourt"
                 app:layout_constraintTop_toBottomOf="@+id/txtBeginTime" />
 
             <ImageView
-                android:id="@+id/imgSun"
+                android:id="@+id/imageCourt"
                 android:layout_width="164dp"
                 android:layout_height="102dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/sun1" />
+                app:srcCompat="@drawable/badminton" />
 
             <TextView
                 android:id="@+id/txtBeginTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:text="startTime"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="8dp"
+                android:text="08:00"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imgSun"
-                app:layout_constraintTop_toTopOf="@+id/imgSun" />
+                app:layout_constraintStart_toEndOf="@+id/imageCourt"
+                app:layout_constraintTop_toTopOf="@+id/imageCourt" />
 
             <TextView
                 android:id="@+id/txtEndTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="endTime"
+                android:layout_marginStart="10dp"
+                android:text="09:00"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/txtNotation"
@@ -63,6 +64,7 @@
                 android:id="@+id/txtNotation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="-"
                 android:textSize="24sp"
                 android:textStyle="bold"

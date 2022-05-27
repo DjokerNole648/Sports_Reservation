@@ -1,14 +1,18 @@
 package be.kuleuven.sports_reservation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -38,10 +42,25 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         holder.txtEndTime.setText(timeSlot.getEndTime());
         holder.txtCourtName.setText(timeSlot.getCourtName());
 
-//        Glide.with(mCtx)
-//                .load(timeSlot.getImage())
-//                .into(holder.imageView);
+        Glide.with(mCtx)
+                .load(timeSlot.getImage())
+                .into(holder.imageView);
 
+
+        holder.btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(mCtx, BookMessageActivity.class);
+                intent.putExtra("isCancel", holder.btnCancel.isEnabled());
+                intent.putExtra("beginTime", timeSlot.getBeginTime());
+                intent.putExtra("endTime", timeSlot.getEndTime());
+                mCtx.startActivity(intent);
+
+                holder.btnCancel.setEnabled(false);
+
+            }
+        });
     }
 
     @Override
@@ -52,7 +71,8 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
     class CalendarViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView txtCourtName, txtBeginTime, txtEndTime, txtSign;
+        TextView txtCourtName, txtBeginTime, txtEndTime;
+        Button btnCancel;
 
         public CalendarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,8 +81,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
             txtBeginTime = itemView.findViewById(R.id.txtTime3);
             txtEndTime = itemView.findViewById(R.id.txtTime4);
             txtCourtName = itemView.findViewById(R.id.txtCourtName);
-            txtSign = itemView.findViewById(R.id.txtSign);
-
+            btnCancel = itemView.findViewById(R.id.btnCancel);
         }
     }
 }

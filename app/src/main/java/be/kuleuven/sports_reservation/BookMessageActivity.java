@@ -20,9 +20,9 @@ public class BookMessageActivity extends AppCompatActivity {
     TextView txtTime1, txtTime2, txtCourtName, txtInfo;
 
     boolean isBook;
+    boolean isCancel;
 
     String data1, data2;
-    int myImage;
 
     private String book_URL = "https://studev.groept.be/api/a21pt101/addBooking/";
     private String unbook_URL = "https://studev.groept.be/api/a21pt101/cancelBooking/";
@@ -42,12 +42,22 @@ public class BookMessageActivity extends AppCompatActivity {
         getData();
         setData();
 
-        if(isBook){
-            addBooking("Alice", txtCourtName.getText().toString(), txtTime1.getText().toString());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!传username
+        if(getIntent().hasExtra("isBook")){
+            if(isBook){
+                addBooking("Alice", txtCourtName.getText().toString(), txtTime1.getText().toString());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!传username
+            }
+            else{
+                cancelBooking("Alice", txtCourtName.getText().toString(), txtTime1.getText().toString());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!传username
+            }
         }
-        else{
-            cancelBooking("Alice", txtCourtName.getText().toString(), txtTime1.getText().toString());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!传username
+
+        if(getIntent().hasExtra("isCancel")){
+            if(isCancel){
+                cancelBooking("Alice", txtCourtName.getText().toString(), txtTime1.getText().toString());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!传username
+            }
         }
+
+
 
 
 
@@ -75,10 +85,18 @@ public class BookMessageActivity extends AppCompatActivity {
 //            Toast.makeText(this,"No data",Toast.LENGTH_SHORT).show();
 //        }
 
+
         Bundle extras = getIntent().getExtras();
         data1 = (String) extras.get("beginTime");
         data2 = (String) extras.get("endTime");
-        isBook = (boolean) extras.get("isBook");
+
+        if(getIntent().hasExtra("isBook")){
+            isBook = (boolean) extras.get("isBook");
+        }
+        if(getIntent().hasExtra("isCancel")){
+            isCancel = (boolean) extras.get("isCancel");
+        }
+
     }
 
     private void setData(){
