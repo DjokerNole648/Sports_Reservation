@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:id="@+id/mainLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnBook"
+                android:layout_width="96sp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:text="BOOK"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toEndOf="@+id/imageCourt"
+                app:layout_constraintTop_toBottomOf="@+id/txtBeginTime" />
+
+            <ImageView
+                android:id="@+id/imageCourt"
+                android:layout_width="164dp"
+                android:layout_height="102dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/badminton" />
+
+            <TextView
+                android:id="@+id/txtBeginTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="8dp"
+                android:text="08:00"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageCourt"
+                app:layout_constraintTop_toTopOf="@+id/imageCourt" />
+
+            <TextView
+                android:id="@+id/txtEndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="09:00"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/txtNotation"
+                app:layout_constraintTop_toTopOf="@+id/txtBeginTime" />
+
+            <TextView
+                android:id="@+id/txtNotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="-"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/txtBeginTime"
+                app:layout_constraintTop_toTopOf="@+id/txtBeginTime" />
+
+            <Button
+                android:id="@+id/btnUnbook"
+                android:layout_width="96sp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:text="unbook"
+                app:layout_constraintStart_toEndOf="@+id/btnBook"
+                app:layout_constraintTop_toTopOf="@+id/btnBook" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
