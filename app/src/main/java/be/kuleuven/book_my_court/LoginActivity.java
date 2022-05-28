@@ -72,9 +72,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onBtnLogin_Clicked(View view) {
         username = (EditText) findViewById(R.id.login_username);
         password = (EditText) findViewById(R.id.login_password);
-
         userName = username.getText().toString();
-//        String userName = username.getText().toString();
         String passWord = password.getText().toString();
         String url = "https://studev.groept.be/api/a21pt101/findPassword/";
 
@@ -94,7 +92,8 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                     else {
-                        Toast.makeText(LoginActivity.this, "Sorry the username is not existed or the password is wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "The username or password is incorrect. " +
+                                "Please verify and try again.", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     Log.e("Database", e.getMessage(), e);
