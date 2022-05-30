@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.searchFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import be.kuleuven.book_my_court.R;
 
 public class SearchFragment extends Fragment {
 
@@ -244,13 +246,13 @@ public class SearchFragment extends Fragment {
                             chosenType = results[i];
                         }
                     }
-                    Intent intent = new Intent(getActivity(), be.kuleuven.book_my_court.ChooseTimeActivity.class);
+                    Intent intent = new Intent(getActivity(), ChooseTimeActivity.class);
                     intent.putExtra("type", chosenType);
                     startActivity(intent);
                 }
                 else{
                     Log.d(TAG, "open dialog");
-                    be.kuleuven.book_my_court.MyDialog myDialog = new be.kuleuven.book_my_court.MyDialog();
+                    MyDialog myDialog = new MyDialog();
                     myDialog.show(getFragmentManager(), "MyDialog");
 
                     spBadminton.setSelection(0);//reset to default value

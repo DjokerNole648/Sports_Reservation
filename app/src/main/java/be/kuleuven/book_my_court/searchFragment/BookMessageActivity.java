@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.searchFragment;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -13,6 +13,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import be.kuleuven.book_my_court.R;
+import be.kuleuven.book_my_court.loginActivities.LoginActivity;
 
 public class BookMessageActivity extends AppCompatActivity {
 
@@ -36,7 +39,7 @@ public class BookMessageActivity extends AppCompatActivity {
         txtTime1 = findViewById(R.id.txtTime1);
         txtTime2 = findViewById(R.id.txtTime2);
         txtCourtName = findViewById(R.id.textViewCourtName);
-        txtCourtName.setText(be.kuleuven.book_my_court.ChooseTimeActivity.getSearchType());
+        txtCourtName.setText(ChooseTimeActivity.getSearchType());
         txtInfo = findViewById(R.id.txtInfo);
 
         getData();

@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.homeFragement;
 
 public class recyclerView {
     private int court;

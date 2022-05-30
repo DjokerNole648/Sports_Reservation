@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.homeFragement;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import be.kuleuven.book_my_court.R;
 
 public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapter.MyViewHolder> {
 
@@ -37,11 +39,6 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
         holder.myText1.setText(view.getTitle());
         holder.myText2.setText(view.getDescription());
 
-        holder.itemView.setOnClickListener(view1 -> {
-            Intent intent = new Intent(context, DescriptionActivity.class);
-            intent.putExtra("court",list.get(position).getTitle());
-            context.startActivity(intent);
-        });
     }
 
     @Override

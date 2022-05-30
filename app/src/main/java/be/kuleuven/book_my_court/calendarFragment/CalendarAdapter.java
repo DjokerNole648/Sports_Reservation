@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.calendarFragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+
+import be.kuleuven.book_my_court.searchFragment.BookMessageActivity;
+import be.kuleuven.book_my_court.R;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder> {
 

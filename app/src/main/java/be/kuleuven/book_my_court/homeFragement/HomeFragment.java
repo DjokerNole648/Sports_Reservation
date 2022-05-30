@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.homeFragement;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.kuleuven.book_my_court.R;
+
 public class HomeFragment extends Fragment{
 
     RecyclerView recyclerView;
-    recyclerViewAdapter recyclerViewAdapter;
-    List<recyclerView> recyclerViewList;
+    be.kuleuven.book_my_court.homeFragement.recyclerViewAdapter recyclerViewAdapter;
+    List<be.kuleuven.book_my_court.homeFragement.recyclerView> recyclerViewList;
 
     @Nullable
     @Override

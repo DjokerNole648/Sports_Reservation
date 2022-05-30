@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.calendarFragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+
+import be.kuleuven.book_my_court.R;
+import be.kuleuven.book_my_court.searchFragment.BookMessageActivity;
 
 //RecyclerView.ViewHolder: holds the view (UI elements)
 //RecyclerView.Adapter: binds the date to the viewHolder
@@ -41,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        be.kuleuven.book_my_court.TimeSlot timeSlot = timeSlotList.get(position);
+        TimeSlot timeSlot = timeSlotList.get(position);
 
         //给my_row里面的组件设值
         holder.txtBeginTime.setText(timeSlot.getBeginTime());

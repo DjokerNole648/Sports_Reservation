@@ -1,10 +1,14 @@
-package be.kuleuven.book_my_court;
+package be.kuleuven.book_my_court.calendarFragment;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,47 +25,36 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChooseTimeActivity extends AppCompatActivity {
+import be.kuleuven.book_my_court.R;
+import be.kuleuven.book_my_court.loginActivities.LoginActivity;
 
-
-
-    private TextView txtType;
-    private static String searchType;
+public class CalendarFragment extends Fragment {
     RecyclerView recyclerView;
 
     List<TimeSlot> timeSlotList;
 
-    private static final String checkByCourtName_URL = "https://studev.groept.be/api/a21pt101/checkByCourtName/";
-
+    private static final String checkBooking_URL = "https://studev.groept.be/api/a21pt101/checkBookings/";
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_time);
-
-        txtType = findViewById(R.id.txtTimeSlot);
-
-        if(!(getIntent().getExtras() == null))
-        {
-            Bundle extras = getIntent().getExtras();
-            searchType = (String) extras.get("type");
-            txtType.setText(searchType);
-        }
-        else
-        {
-            txtType.setText(searchType);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_favorite, container, false);
 
         timeSlotList = new ArrayList<>();
+        recyclerView = view.findViewById(R.id.myCalendar);
+        recyclerView.setHasFixedSize(true);
 
-        recyclerView = findViewById(R.id.myCalendar);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(layoutManager);
 
-        loadTimeSlot();
+        loadMyCalendar();
 
+
+        return view;
     }
 
-    private void loadTimeSlot(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, checkByCourtName_URL + searchType, new Response.Listener<String>() {
+    private void loadMyCalendar() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, checkBooking_URL + LoginActivity.getUserName(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -80,7 +73,7 @@ public class ChooseTimeActivity extends AppCompatActivity {
 
                     }
 
-                    MyAdapter adapter = new MyAdapter(ChooseTimeActivity.this, timeSlotList);
+                    CalendarAdapter adapter = new CalendarAdapter(getContext(), timeSlotList);
                     recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
@@ -92,20 +85,11 @@ public class ChooseTimeActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ChooseTimeActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
-        Volley.newRequestQueue(this).add(stringRequest);
-    }
+        Volley.newRequestQueue(getContext()).add(stringRequest);
 
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-    }
-
-    public static String getSearchType() {
-        return searchType;
     }
 }
