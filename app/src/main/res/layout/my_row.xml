@@ -76,7 +76,7 @@
                 android:layout_width="96sp"
                 android:layout_height="48dp"
                 android:layout_marginStart="20dp"
-                android:text="unbook"
+                android:text="cancel"
                 app:layout_constraintStart_toEndOf="@+id/btnBook"
                 app:layout_constraintTop_toTopOf="@+id/btnBook" />
         </androidx.constraintlayout.widget.ConstraintLayout>

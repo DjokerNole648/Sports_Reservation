@@ -1,16 +1,15 @@
 package be.kuleuven.sports_reservation;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.util.Log;
 import android.view.View;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.SpinnerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,11 +19,13 @@ public class SearchFragment extends Fragment {
 
     private static int chosenNumber;
     private Button btnSearch;
+    private ImageButton btnManager;
     private Spinner spBadminton, spTennis ,spBasketball, spVolleyBall, spFootBall;
 
     String type_badminton, type_tennis, type_basketball, type_volleyball, type_football;
 
     private static final String TAG = "SearchFragment";
+
 
     @Nullable
     @Override
@@ -33,6 +34,8 @@ public class SearchFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
+        Court.initCourt();
+
         spBadminton = (Spinner) view.findViewById(R.id.spBadminton);
         spTennis = (Spinner) view.findViewById(R.id.spTennis);
         spBasketball = (Spinner) view.findViewById(R.id.spBasketball);
@@ -40,6 +43,12 @@ public class SearchFragment extends Fragment {
         spFootBall = (Spinner) view.findViewById(R.id.spFootball);
 
         btnSearch = (Button) view.findViewById(R.id.btnSearch);
+        btnManager = (ImageButton) view.findViewById(R.id.btnManager);
+
+        SpinnerAdapter courtAdapter = new be.kuleuven.sports_reservation.SpinnerAdapter(getContext(), R.layout.court_adapter, Court.getCourts());
+        spBadminton.setAdapter(courtAdapter);
+
+
 
 
 //        btnSearch.setEnabled(false);
@@ -265,17 +274,28 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        btnManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "open dialog");
+                ManagerDialog managerDialogDialog = new ManagerDialog();
+                managerDialogDialog.show(getFragmentManager(), "ManagerDialog");
+            }
+        });
+
 
         return view;
     }
 
-    public void getValue(){
-        type_badminton = spBadminton.getSelectedItem().toString();
-        type_tennis = spTennis.getSelectedItem().toString();
-        type_basketball = spBasketball.getSelectedItem().toString();
-        type_volleyball = spVolleyBall.getSelectedItem().toString();
-        type_football = spFootBall.getSelectedItem().toString();
-    }
+
+
+//    public void getValue(){
+//        type_badminton = spBadminton.getSelectedItem().toString();
+//        type_tennis = spTennis.getSelectedItem().toString();
+//        type_basketball = spBasketball.getSelectedItem().toString();
+//        type_volleyball = spVolleyBall.getSelectedItem().toString();
+//        type_football = spFootBall.getSelectedItem().toString();
+//    }
 
     public static int getChosenNumber() {
         return chosenNumber;

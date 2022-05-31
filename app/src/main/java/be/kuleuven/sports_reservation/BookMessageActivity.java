@@ -1,5 +1,6 @@
 package be.kuleuven.sports_reservation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BookMessageActivity extends AppCompatActivity {
 
@@ -60,7 +64,8 @@ public class BookMessageActivity extends AppCompatActivity {
 
 
 
-
+////todo
+//
 //        final Intent localIntent=new Intent(this, ChooseTimeActivity.class);
 //        Timer timer=new Timer();
 //        TimerTask task=new TimerTask(){

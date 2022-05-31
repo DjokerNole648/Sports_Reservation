@@ -35,23 +35,23 @@
 
     <string-array name="volleyball_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Volleyball1</item>
+        <item>Volleyball2</item>
+        <item>Volleyball3</item>
     </string-array>
 
     <string-array name="basketball_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Basketball1</item>
+        <item>Basketball2</item>
+        <item>Basketball3</item>
     </string-array>
 
     <string-array name="football_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Football1</item>
+        <item>Football2</item>
+        <item>Football3</item>
     </string-array>
 
 </resources>
