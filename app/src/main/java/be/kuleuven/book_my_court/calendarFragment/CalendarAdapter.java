@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import be.kuleuven.book_my_court.TimeSlot;
 import be.kuleuven.book_my_court.searchFragment.BookMessageActivity;
 import be.kuleuven.book_my_court.R;
 

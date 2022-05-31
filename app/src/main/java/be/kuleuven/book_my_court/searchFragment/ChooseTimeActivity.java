@@ -19,11 +19,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-import be.kuleuven.book_my_court.calendarFragment.MyAdapter;
 import be.kuleuven.book_my_court.R;
-import be.kuleuven.book_my_court.calendarFragment.TimeSlot;
+import be.kuleuven.book_my_court.TimeSlot;
+
+
 
 public class ChooseTimeActivity extends AppCompatActivity {
 
@@ -71,16 +73,32 @@ public class ChooseTimeActivity extends AppCompatActivity {
                 try {
                     JSONArray timeSlots = new JSONArray(response);
 
+                    Calendar calendar = Calendar.getInstance();
+//                    int year = calendar.get(Calendar.YEAR);
+//                    int month = calendar.get(Calendar.MONTH)+1;
+//                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+//                    int minute = calendar.get(Calendar.MINUTE);
+//                    int second = calendar.get(Calendar.SECOND);
+                    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+
+
                     for (int i = 0; i <timeSlots.length() ; i++) {
                         JSONObject o = timeSlots.getJSONObject(i);
+
 
                         String beginTime = o.getString("beginTime");
                         String endTime = o.getString("endTime");
                         String courtName = o.getString("courtName");
                         String image = o.getString("image");
 
-                        TimeSlot timeSlot = new TimeSlot(beginTime, endTime, courtName, image);
-                        timeSlotList.add(timeSlot);
+                        String strHour = endTime.substring(0,2);
+                        int intHour = Integer.parseInt(strHour);
+
+                        if(intHour > hour){
+                            TimeSlot timeSlot = new TimeSlot(beginTime, endTime, courtName, image);
+                            timeSlotList.add(timeSlot);
+                        }
 
                     }
 

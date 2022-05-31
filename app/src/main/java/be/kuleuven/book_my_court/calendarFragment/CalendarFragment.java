@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.kuleuven.book_my_court.R;
+import be.kuleuven.book_my_court.TimeSlot;
 import be.kuleuven.book_my_court.loginActivities.LoginActivity;
 
 public class CalendarFragment extends Fragment {
@@ -37,7 +38,7 @@ public class CalendarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_favorite, container, false);
+        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
 
         timeSlotList = new ArrayList<>();
         recyclerView = view.findViewById(R.id.myCalendar);

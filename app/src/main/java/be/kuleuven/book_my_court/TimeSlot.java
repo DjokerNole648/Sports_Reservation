@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court.calendarFragment;
+package be.kuleuven.book_my_court;
 
 public class TimeSlot {
     private String beginTime;

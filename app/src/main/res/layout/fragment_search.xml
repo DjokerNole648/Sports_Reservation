@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/search_background1"
-    android:theme="@android:style/Theme.Translucent"
     tools:context=".searchFragment.SearchFragment">
 
     <TextView
@@ -118,10 +117,11 @@
 
     <Spinner
         android:id="@+id/spBadminton"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:entries="@array/badminton_items"
+        android:minHeight="48dp"
         android:spinnerMode="dialog"
         app:layout_constraintStart_toEndOf="@+id/txtBadminton"
         app:layout_constraintTop_toTopOf="@+id/txtBadminton" />
@@ -129,7 +129,7 @@
     <Spinner
         android:id="@+id/spTennis"
         android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:entries="@array/tennis_items"
         android:spinnerMode="dialog"
         app:layout_constraintStart_toStartOf="@+id/spBadminton"
@@ -138,7 +138,7 @@
     <Spinner
         android:id="@+id/spBasketball"
         android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:entries="@array/basketball_items"
         app:layout_constraintStart_toStartOf="@+id/spVolleyball"
         app:layout_constraintTop_toTopOf="@+id/txtBasketball" />
@@ -146,7 +146,7 @@
     <Spinner
         android:id="@+id/spVolleyball"
         android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:entries="@array/volleyball_items"
         app:layout_constraintStart_toStartOf="@+id/spTennis"
         app:layout_constraintTop_toTopOf="@+id/txtVolleyball" />
@@ -165,7 +165,7 @@
     <Spinner
         android:id="@+id/spFootball"
         android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:entries="@array/football_items"
         app:layout_constraintStart_toStartOf="@+id/spBasketball"
         app:layout_constraintTop_toTopOf="@+id/txtBasketball2" />
@@ -181,6 +181,14 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_lock_24"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@
     <string name="set_your_new_password">Set your password</string>
     <string name="enter_your_new_password">Enter your new password</string>
     <string name="confirm_your_password">Confirm your password</string>
+    <string name="my_calendar">My Calendar</string>
 
     <string-array name="sports">
         <item>tennisHard</item>

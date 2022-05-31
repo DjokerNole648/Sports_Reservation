@@ -1,4 +1,4 @@
-package be.kuleuven.book_my_court.calendarFragment;
+package be.kuleuven.book_my_court.searchFragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import be.kuleuven.book_my_court.R;
-import be.kuleuven.book_my_court.searchFragment.BookMessageActivity;
+import be.kuleuven.book_my_court.TimeSlot;
 
 //RecyclerView.ViewHolder: holds the view (UI elements)
 //RecyclerView.Adapter: binds the date to the viewHolder
