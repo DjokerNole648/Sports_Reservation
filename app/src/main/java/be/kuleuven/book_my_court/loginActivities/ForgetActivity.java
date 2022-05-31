@@ -24,7 +24,6 @@ import org.json.JSONObject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 import be.kuleuven.book_my_court.R;
 
