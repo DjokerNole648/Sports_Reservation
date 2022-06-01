@@ -21,6 +21,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
@@ -51,6 +56,16 @@ public class LoginActivity extends AppCompatActivity {
         forget_button = (MaterialButton) findViewById(R.id.forget_button);
         register_button = (MaterialButton) findViewById(R.id.register_button);
 
+        try {
+            checkLoginTxt();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            readLoginTxt();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 }
 
     public void onBtnForget_Clicked(View view){
@@ -89,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                         String responseString = curObject.getString("password");
 
                         if (hashPassword(passWord).equals(responseString)) {
+                            updateLoginTxt(userName);
                             finish();
                             startActivity(intent);
                     }
@@ -96,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "The username or password is incorrect. " +
                                 "Please verify and try again.", Toast.LENGTH_SHORT).show();
                     }
-                } catch (JSONException e) {
+                } catch (JSONException | IOException e) {
                     Log.e("Database", e.getMessage(), e);
                 }
         },
@@ -121,5 +137,86 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return hashedString;
+    }
+
+    private void checkLoginTxt() throws IOException {
+        String s = getFilesDir() + "/" + "login";
+        try{
+            new BufferedReader(new FileReader(s));
+        }
+        catch (Exception e){
+            generateLoginTxt();
+        }
+    }
+
+    private void generateLoginTxt() throws IOException {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("username", "");
+            writeLoginTxt(object);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readLoginTxt() throws IOException {
+        String s = getFilesDir() + "/" + "login";
+        BufferedReader reader = new BufferedReader(new FileReader(s));
+        String json = "";
+        json = getJSONString(reader);
+        Intent intent = new Intent(this, FragmentActivity.class);
+        try {
+            JSONObject object = new JSONObject(json);
+            String username = object.getString("username");
+            if(!username.equals("")){
+                userName = username;
+                finish();
+                startActivity(intent);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateLoginTxt(String username) throws IOException {
+        String s = getFilesDir() + "/" + "login";
+        BufferedReader reader = new BufferedReader(new FileReader(s));
+        String json = "";
+        json = getJSONString(reader);
+
+        try {
+            JSONObject object = new JSONObject(json);
+            object.put("username", username);
+            writeLoginTxt(object);
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String getJSONString(BufferedReader reader) throws IOException {
+        String json = "";
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = reader.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = reader.readLine();
+            }
+            json = sb.toString();
+        } finally {
+            reader.close();
+        }
+
+        return json;
+    }
+
+    private void writeLoginTxt(JSONObject object) throws IOException {
+        String s = getFilesDir() + "/" + "login";
+        BufferedWriter output = new BufferedWriter(new FileWriter(s));
+        output.write(object.toString());
+        output.close();
     }
 }

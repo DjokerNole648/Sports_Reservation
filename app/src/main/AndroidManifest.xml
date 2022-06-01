@@ -14,9 +14,6 @@
             android:name=".FragmentActivity"
             android:exported="false"/>
         <activity
-            android:name=".homeFragement.DescriptionActivity"
-            android:exported="false" />
-        <activity
             android:name=".searchFragment.ChooseTimeActivity"
             android:exported="false" />
         <activity
