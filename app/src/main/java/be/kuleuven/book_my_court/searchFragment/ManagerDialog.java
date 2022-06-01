@@ -21,6 +21,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -41,8 +45,8 @@ public class ManagerDialog extends DialogFragment {
         View view = inflater.inflate(R.layout.dialog_manager, container, false);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         code = view.findViewById(R.id.code);
-        String url = "https://studev.groept.be/api/a21pt101/updateCode/";
-        String codeInput = code.getText().toString();
+        String url = "https://studev.groept.be/api/a21pt101/checkCode";
+        String codeInput = hashPassword(code.getText().toString());
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,9 +54,24 @@ public class ManagerDialog extends DialogFragment {
                 
                 RequestQueue requestQueue = Volley.newRequestQueue(getContext());
 
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, url + hashPassword(codeInput), response ->
-                        Toast.makeText(getContext(), "success!", Toast.LENGTH_LONG).show(),
-                        error -> Toast.makeText(getContext(), "OhNooooo", Toast.LENGTH_LONG).show()
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        response -> {
+                    try{
+                        JSONArray responseArray = new JSONArray(response);
+                        JSONObject curObject = responseArray.getJSONObject(0);
+                        String responseString = curObject.getString("code");
+                        if(codeInput.equals(responseString)){
+                            String[] courts = new String[]{"Badminton1", "Badminton2"};
+                            BeforeCreateTimeSlot(courts);
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please enter a correct code!", Toast.LENGTH_LONG).show();
+                    }catch (JSONException e){
+                        Log.e("Database", e.getMessage(), e);
+                    }
+                },
+
+                        error -> Toast.makeText(getContext(), error.getLocalizedMessage(), Toast.LENGTH_LONG).show()
                 );
                 requestQueue.add(stringRequest);
 
@@ -83,8 +102,7 @@ public class ManagerDialog extends DialogFragment {
         return hashedString;
     }
 
-//        String[] courts = new String[]{"Badminton1", "Badminton2"};
-//        BeforeCreateTimeSlot(courts);
+
 
     private void BeforeCreateTimeSlot(String[] str) {
         System.out.println("create truncate request");

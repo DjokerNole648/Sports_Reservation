@@ -33,30 +33,29 @@
 
     <string-array name="tennis_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Rod Laver Arena</item>
+        <item>Court Philippe Chatrier</item>
+        <item>Centre Court</item>
+        <item>Arthur Ashe Stadium</item>
     </string-array>
 
 
     <string-array name="volleyball_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Beach Volleyball</item>
+        <item>Indoor Hard</item>
     </string-array>
 
     <string-array name="basketball_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Indoor Basketball</item>
+        <item>Outdoor Basketball</item>
     </string-array>
 
     <string-array name="football_items">
         <item>None</item>
-        <item>Tennis1</item>
-        <item>Tennis2</item>
-        <item>Tennis3</item>
+        <item>Football1</item>
+        <item>Football2</item>
+        <item>Football3</item>
     </string-array>
 </resources>
