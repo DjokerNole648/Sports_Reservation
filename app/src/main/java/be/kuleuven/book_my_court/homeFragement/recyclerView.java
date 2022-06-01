@@ -2,7 +2,7 @@ package be.kuleuven.book_my_court.homeFragement;
 
 public class recyclerView {
     private int court;
-    private String title, description;
+    private String title, description, openHour;
 
     public int getCourt() {
         return court;
@@ -28,9 +28,14 @@ public class recyclerView {
         this.description = description;
     }
 
-    recyclerView(int court, String title, String description){
+    public String getOpenHour(){return openHour;}
+
+    public void setOpenHour(String openHour){this.openHour = openHour;}
+
+    recyclerView(int court, String title, String description, String openHour){
         this.court = court;
         this.title = title;
         this.description = description;
+        this.openHour = openHour;
     }
 }

@@ -140,6 +140,7 @@
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:entries="@array/basketball_items"
+        android:spinnerMode="dialog"
         app:layout_constraintStart_toStartOf="@+id/spVolleyball"
         app:layout_constraintTop_toTopOf="@+id/txtBasketball" />
 
@@ -148,6 +149,7 @@
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:entries="@array/volleyball_items"
+        android:spinnerMode="dialog"
         app:layout_constraintStart_toStartOf="@+id/spTennis"
         app:layout_constraintTop_toTopOf="@+id/txtVolleyball" />
 
@@ -166,6 +168,7 @@
         android:id="@+id/spFootball"
         android:layout_width="160dp"
         android:layout_height="48dp"
+        android:spinnerMode="dialog"
         android:entries="@array/football_items"
         app:layout_constraintStart_toStartOf="@+id/spBasketball"
         app:layout_constraintTop_toTopOf="@+id/txtBasketball2" />
@@ -187,7 +190,7 @@
         android:id="@+id/btnManager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_lock_24"
+        android:src="@drawable/ic_baseline_manage_accounts_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

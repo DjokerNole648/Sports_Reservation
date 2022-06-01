@@ -19,11 +19,12 @@
         android:id="@+id/txtDialog"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
         android:text="Please enter the code for manager:"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor="#363289"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 

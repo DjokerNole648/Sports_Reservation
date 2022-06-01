@@ -82,6 +82,7 @@ public class FragmentActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 

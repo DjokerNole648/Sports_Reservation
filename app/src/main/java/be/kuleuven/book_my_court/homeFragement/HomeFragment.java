@@ -29,13 +29,13 @@ public class HomeFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerViewList = new ArrayList<>();
-        recyclerViewList.add(new recyclerView(R.drawable.hardau, "Rod Laver Arena", "Tennis Hard Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.clay, "Court Philippe Chatrier", "Tennis Clay Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.grass, "Centre Court", "Tennis Grass Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.hardus, "Arthur Ashe Stadium", "Tennis Hard Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.badminton, "Badminton", "Badminton Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.basketball, "Basketball", "Basketball Court"));
-        recyclerViewList.add(new recyclerView(R.drawable.volleyball, "Volleyball", "Volleyball Court"));
+        recyclerViewList.add(new recyclerView(R.drawable.hardau, "Rod Laver Arena", "Tennis Hard Court", "Open from 8:00 to 22:00"));
+        recyclerViewList.add(new recyclerView(R.drawable.clay, "Court Philippe Chatrier", "Tennis Clay Court", "Open from 8:00 to 22:00"));
+        recyclerViewList.add(new recyclerView(R.drawable.grass, "Centre Court", "Tennis Grass Court", "Open from 8:00 to 22:00"));
+        recyclerViewList.add(new recyclerView(R.drawable.hardus, "Arthur Ashe Stadium", "Tennis Hard Court", "Open from 8:00 to 22:00"));
+        recyclerViewList.add(new recyclerView(R.drawable.badminton, "Badminton", "Badminton Court", "Open from 8:00 to 22:00"));
+        recyclerViewList.add(new recyclerView(R.drawable.basketball, "Basketball", "Basketball Court", "Open from 8:00 to 22:00"));
+        recyclerViewList.add(new recyclerView(R.drawable.volleyball, "Volleyball", "Volleyball Court", "Open from 8:00 to 22:00"));
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerViewAdapter = new recyclerViewAdapter(recyclerViewList, getContext());

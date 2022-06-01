@@ -24,7 +24,7 @@ import java.util.List;
 
 import be.kuleuven.book_my_court.R;
 import be.kuleuven.book_my_court.TimeSlot;
-
+import be.kuleuven.book_my_court.loginActivities.LoginActivity;
 
 
 public class ChooseTimeActivity extends AppCompatActivity {
@@ -67,7 +67,7 @@ public class ChooseTimeActivity extends AppCompatActivity {
     }
 
     private void loadTimeSlot(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, checkByCourtName_URL + searchType, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, checkByCourtName_URL + searchType + "/" + LoginActivity.getUserName(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

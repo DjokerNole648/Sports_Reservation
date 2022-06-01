@@ -1,7 +1,6 @@
 package be.kuleuven.book_my_court.homeFragement;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
         holder.myImage.setImageResource(view.getCourt());
         holder.myText1.setText(view.getTitle());
         holder.myText2.setText(view.getDescription());
-
+        holder.myText3.setText(view.getOpenHour());
     }
 
     @Override
@@ -47,13 +46,14 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView myText1, myText2;
+        TextView myText1, myText2, myText3;
         ImageView myImage;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             myText1 = itemView.findViewById(R.id.tennis_clay_title);
             myText2 = itemView.findViewById(R.id.tennis_clay_description);
+            myText3 = itemView.findViewById(R.id.tennis_clay_openHour);
             myImage = itemView.findViewById(R.id.tennis_clay);
         }
     }

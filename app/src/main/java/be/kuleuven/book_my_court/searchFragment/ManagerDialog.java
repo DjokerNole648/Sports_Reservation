@@ -61,7 +61,11 @@ public class ManagerDialog extends DialogFragment {
                         JSONObject curObject = responseArray.getJSONObject(0);
                         String responseString = curObject.getString("code");
                         if(codeInput.equals(responseString)){
-                            String[] courts = new String[]{"Badminton1", "Badminton2"};
+                            String[] courts = new String[]{"Badminton1", "Badminton2","Badminton3",
+                            "Rod Laver Arena", "Court Philippe Chatrier", "Centre Court", "Arthur Ashe Stadium",
+                            "Beach Volleyball", "Indoor Hard",
+                            "Indoor Basketball", "Outdoor Basketball",
+                            "Football1" ,"Football2", "Football3"};
                             BeforeCreateTimeSlot(courts);
                         }
                         else
@@ -103,7 +107,6 @@ public class ManagerDialog extends DialogFragment {
     }
 
 
-
     private void BeforeCreateTimeSlot(String[] str) {
         System.out.println("create truncate request");
         StringRequest stringRequest = new StringRequest(Request.Method.GET, truncate_URL, new Response.Listener<String>() {
@@ -124,9 +127,7 @@ public class ManagerDialog extends DialogFragment {
         requestQueue.add(stringRequest);
         System.out.println("send truncate request ");
 
-
         SystemClock.sleep(1000);
-
 
         for (int i = 0; i < str.length; i++) {
             stringRequest = new StringRequest(Request.Method.GET, createTimeSlot_URL + str[i], new Response.Listener<String>() {
