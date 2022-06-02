@@ -57,6 +57,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
 
                 Intent intent = new Intent(mCtx, BookMessageActivity.class);
                 intent.putExtra("isCancel", holder.btnCancel.isEnabled());
+                intent.putExtra("courtName", timeSlot.getCourtName());
                 intent.putExtra("beginTime", timeSlot.getBeginTime());
                 intent.putExtra("endTime", timeSlot.getEndTime());
                 mCtx.startActivity(intent);

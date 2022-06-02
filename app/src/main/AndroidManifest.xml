@@ -20,6 +20,9 @@
             android:name=".searchFragment.BookMessageActivity"
             android:exported="false" />
         <activity
+            android:name=".searchFragment.ExceedLimitActivity"
+            android:exported="false" />
+        <activity
             android:name=".loginActivities.ForgetActivity"
             android:exported="false"/>
         <activity

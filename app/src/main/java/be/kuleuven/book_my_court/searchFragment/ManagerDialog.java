@@ -30,6 +30,7 @@ import java.security.NoSuchAlgorithmException;
 
 import be.kuleuven.book_my_court.R;
 
+//密码是0879107
 public class ManagerDialog extends DialogFragment {
 
     private static final String TAG = "ManagerDialog";
@@ -46,6 +47,7 @@ public class ManagerDialog extends DialogFragment {
         btnSubmit = view.findViewById(R.id.btnSubmit);
         code = view.findViewById(R.id.code);
         String url = "https://studev.groept.be/api/a21pt101/checkCode";
+
         String codeInput = hashPassword(code.getText().toString());
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +56,7 @@ public class ManagerDialog extends DialogFragment {
                 
                 RequestQueue requestQueue = Volley.newRequestQueue(getContext());
 
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url ,
                         response -> {
                     try{
                         JSONArray responseArray = new JSONArray(response);
@@ -67,6 +69,7 @@ public class ManagerDialog extends DialogFragment {
                             "Indoor Basketball", "Outdoor Basketball",
                             "Football1" ,"Football2", "Football3"};
                             BeforeCreateTimeSlot(courts);
+                            Toast.makeText(getContext(), "Update time slots successfully!", Toast.LENGTH_LONG).show();
                         }
                         else
                             Toast.makeText(getContext(), "Please enter a correct code!", Toast.LENGTH_LONG).show();

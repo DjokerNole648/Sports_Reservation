@@ -10,12 +10,13 @@
         android:id="@+id/txtTimeSlot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/calligraffitti"
         android:text="@string/my_calendar"
-        android:textColor="#ED5126"
+        android:textColor="@color/teal_700"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

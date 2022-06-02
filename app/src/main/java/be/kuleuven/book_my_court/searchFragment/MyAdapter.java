@@ -9,17 +9,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
 import be.kuleuven.book_my_court.R;
 import be.kuleuven.book_my_court.TimeSlot;
+import be.kuleuven.book_my_court.loginActivities.LoginActivity;
 
 //RecyclerView.ViewHolder: holds the view (UI elements)
 //RecyclerView.Adapter: binds the date to the viewHolder
@@ -28,6 +39,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
     private List<TimeSlot> timeSlotList;
+    private int numberOfBooking;
+
+    private String countBookings_URL = "https://studev.groept.be/api/a21pt101/countBookingByUser/";
+
 
     public MyAdapter(Context mCtx, List<TimeSlot> timeSlotList) {
         this.context = mCtx;
@@ -61,15 +76,56 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, countBookings_URL + LoginActivity.getUserName(), new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray counts = new JSONArray(response);
+                            JSONObject o = counts.getJSONObject(0);
+                            String number = o.getString("numberOfBookings");
+                            numberOfBooking = Integer.parseInt(number);
+                            System.out.println("numberOfBookings: " + numberOfBooking);
 
-                Intent intent = new Intent(context, BookMessageActivity.class);
-                intent.putExtra("isBook", holder.btnBook.isEnabled());
-                intent.putExtra("beginTime", timeSlot.getBeginTime());
-                intent.putExtra("endTime", timeSlot.getEndTime());
-                context.startActivity(intent);
+                            Intent intent = new Intent(context, BookMessageActivity.class);
+                            intent.putExtra("isBook", holder.btnBook.isEnabled());
+                            intent.putExtra("beginTime", timeSlot.getBeginTime());
+                            intent.putExtra("endTime", timeSlot.getEndTime());
+                            context.startActivity(intent);
 
-                holder.btnUnbook.setEnabled(true);
-                holder.btnBook.setEnabled(false);
+                            if(numberOfBooking <= BookMessageActivity.getMaximumNumber() - 1){  //because to the response delay, the numberOfBooking is 1 smaller than the exact one.
+
+                                holder.btnUnbook.setEnabled(true);
+                                holder.btnBook.setEnabled(false);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(view.getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                Volley.newRequestQueue(view.getContext()).add(stringRequest);
+
+
+
+//                if(numberOfBooking <= maximumNumber - 1){  //because to the response delay, the numberOfBooking is 1 smaller than the exact one.
+//                    System.out.println("numberOfBookings: " + numberOfBooking);
+//                    System.out.println("maximum: " + maximumNumber);
+//
+//                    Intent intent = new Intent(context, BookMessageActivity.class);
+//                    intent.putExtra("isBook", holder.btnBook.isEnabled());
+//                    intent.putExtra("beginTime", timeSlot.getBeginTime());
+//                    intent.putExtra("endTime", timeSlot.getEndTime());
+//                    context.startActivity(intent);
+//
+//                    holder.btnUnbook.setEnabled(true);
+//                    holder.btnBook.setEnabled(false);
+//                }
 
             }
         });
