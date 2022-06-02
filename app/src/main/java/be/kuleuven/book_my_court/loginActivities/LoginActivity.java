@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onBtnLogin_Clicked(View view) {
         EditText username = (EditText) findViewById(R.id.login_username);
         EditText password = (EditText) findViewById(R.id.login_password);
-        userName = username.getText().toString();
+        userName = username.getText().toString().trim();
         String passWord = password.getText().toString();
         String url = "https://studev.groept.be/api/a21pt101/findPassword/";
 
